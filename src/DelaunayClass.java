@@ -6,14 +6,15 @@
 import java.awt.Graphics;
 import java.util.Vector;
 
-class DelaunayClass extends Vector
+@SuppressWarnings("serial")
+class DelaunayClass extends Vector<Paintable>
 {
 
 	public void paint(Graphics g)
 	{
 		for(int i = 0; i < size(); i++)
 		{
-			((Paintable)elementAt(i)).paint(g);
+			elementAt(i).paint(g);
 		}
 
 	}

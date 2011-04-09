@@ -28,6 +28,9 @@ class MyPoint
 		y = point.y;
 	}
 
+	/**
+	 * paint this point as an circle
+	 */
 	public void paint(Graphics g)
 	{
 /*		int x = (int)this.x, y = (int)this.y;
@@ -41,6 +44,10 @@ class MyPoint
 //		g.drawOval((int)(x - 4.0), (int)(y - 4.0), 9, 9);
 	}
 
+	/**
+	 * @param mypoint another point
+	 * @return euclidean distance between this and mypoint.
+	 */
 	public double distance(MyPoint mypoint)
 	{
 		double d = mypoint.x - x;

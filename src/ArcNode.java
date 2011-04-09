@@ -4,8 +4,6 @@
 // Source File Name:   Fortune.java
 
 import java.awt.*;
-import java.io.PrintStream;
-import java.util.Vector;
 
 class ArcNode extends ParabolaPoint
 {

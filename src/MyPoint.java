@@ -8,6 +8,7 @@ import java.awt.Point;
 
 class MyPoint implements Paintable
 {
+	volatile double x, y;
 
 	public MyPoint(double d, double d1)
 	{
@@ -54,5 +55,4 @@ class MyPoint implements Paintable
 		return Math.sqrt(d * d + d1 * d1);
 	}
 
-	volatile double x, y;
 }

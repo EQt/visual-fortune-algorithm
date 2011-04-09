@@ -64,7 +64,7 @@ class VoronoiClass extends Vector<Paintable>
 		for(int i = 0; i < size(); i++)
 		{
 			if(flag || !(elementAt(i) instanceof MyLine))
-				((Paintable)elementAt(i)).paint(g);
+				elementAt(i).paint(g);
 		}
 	}
 

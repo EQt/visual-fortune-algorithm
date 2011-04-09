@@ -6,6 +6,7 @@
 import java.applet.Applet;
 import java.awt.*;
 
+@SuppressWarnings("serial")
 public class Fortune extends Applet
 	implements Runnable
 {

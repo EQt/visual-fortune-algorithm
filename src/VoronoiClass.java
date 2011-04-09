@@ -6,7 +6,8 @@
 import java.awt.Graphics;
 import java.util.Vector;
 
-class VoronoiClass extends Vector
+@SuppressWarnings("serial")
+class VoronoiClass extends Vector<Paintable>
 {
 	public VoronoiClass (int width, int height, int points)
 	{

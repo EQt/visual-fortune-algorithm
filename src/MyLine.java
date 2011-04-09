@@ -5,8 +5,7 @@
 
 import java.awt.Graphics;
 
-class MyLine
-	implements Paintable
+class MyLine implements Paintable
 {
 
 	MyLine(MyPoint mypoint, MyPoint mypoint1)

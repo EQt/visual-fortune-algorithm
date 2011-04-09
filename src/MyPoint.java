@@ -6,8 +6,7 @@
 import java.awt.Graphics;
 import java.awt.Point;
 
-class MyPoint
-	implements Paintable
+class MyPoint implements Paintable
 {
 
 	public MyPoint(double d, double d1)

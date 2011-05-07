@@ -13,8 +13,8 @@ class ParabolaPoint extends MyPoint {
 		return y;
 	}
 
-	public double realY(double d) {
-		return d - x;
+	public double realY(double t) {
+		return t - x;
 	}
 
 	public CirclePoint calculateCenter(MyPoint mypoint, ArcNode arcnode, MyPoint mypoint1) {
@@ -52,12 +52,16 @@ class ParabolaPoint extends MyPoint {
 		c = (d1 * d1) / (2D * d2) + d2 / 2D;
 	}
 
-	public double F(double d) {
-		return (a * d + b) * d + c;
+	/**
+	 * Value of the Parabola at time t, i.e. F(t) = a*t^2 + b*t + c
+	 * @param t
+	 * @return
+	 */
+	public double F(double t) {
+		return (a * t + b) * t + c;
 	}
 
-	public double[] solveQuadratic(double d, double d1, double d2)
-			throws Throwable {
+	public double[] solveQuadratic(double d, double d1, double d2) throws Throwable {
 		double ad[] = new double[2];
 		double d3 = d1 * d1 - 4D * d * d2;
 		if (d3 < 0.0D) {

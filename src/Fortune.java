@@ -22,7 +22,7 @@ public class Fortune extends Applet
 
 	public void start()
 	{
-		if(thread == null)
+		if (thread == null)
 		{
 			thread = controls.thread = new Thread(this);
 			thread.start();
@@ -31,7 +31,7 @@ public class Fortune extends Applet
 
 	public void run()
 	{
-		if(thread != null)
+		if (thread != null)
 		{
 			do
 			{

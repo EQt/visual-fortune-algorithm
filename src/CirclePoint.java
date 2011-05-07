@@ -33,12 +33,12 @@ class CirclePoint extends EventPoint
 		arcnode.startOfTrace = mypoint;
 		arcnode.Next = arcnode1;
 		arcnode1.Prev = arcnode;
-		if(arcnode.circlePoint != null)
+		if (arcnode.circlePoint != null)
 		{
 			mycanvas.Events.remove(arcnode.circlePoint);
 			arcnode.circlePoint = null;
 		}
-		if(arcnode1.circlePoint != null)
+		if (arcnode1.circlePoint != null)
 		{
 			mycanvas.Events.remove(arcnode1.circlePoint);
 			arcnode1.circlePoint = null;

@@ -34,33 +34,33 @@ class MyControls extends Panel
 	public void actionPerformed(ActionEvent actionevent)
 	{
 		String s = actionevent.getActionCommand();
-		if(s == "Suspend")
+		if (s == "Suspend")
 		{
 			threadRunning(false);
 			return;
 		}
-		if(s == "Resume")
+		if (s == "Resume")
 		{
 			threadRunning(true);
 			return;
 		}
-		if(s == "Next event")
+		if (s == "Next event")
 		{
 			canvas.step();
 			return;
 		}
-		if(s == "Next pixel")
+		if (s == "Next pixel")
 		{
 			canvas.singlestep();
 			return;
 		}
-		if(s == "Clear")
+		if (s == "Clear")
 		{
 			threadRunning(false);
 			canvas.clear();
 			return;
 		}
-		if(s == "Restart")
+		if (s == "Restart")
 		{
 			canvas.restart();
 			threadRunning(true);
@@ -69,9 +69,9 @@ class MyControls extends Panel
 
 	public void threadRunning(boolean flag)
 	{
-		if(flag != running)
+		if (flag != running)
 		{
-			if(running = flag)
+			if (running = flag)
 			{
 				buttons[0].setEnabled(true);
 				buttons[1].setEnabled(false);

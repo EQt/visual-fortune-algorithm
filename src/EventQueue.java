@@ -9,19 +9,19 @@ class EventQueue
 {
 	public void insert (EventPoint p)
 	{
-		if(Events != null)
+		if (Events != null)
 			Events.insert(p);
 
-		if(p.Prev == null)
+		if (p.Prev == null)
 			Events = p;
 	}
 
 	public void remove (EventPoint eventpoint)
 	{
-		if(eventpoint.Next != null)
+		if (eventpoint.Next != null)
 			eventpoint.Next.Prev = eventpoint.Prev;
 
-		if(eventpoint.Prev != null)
+		if (eventpoint.Prev != null)
 				eventpoint.Prev.Next = eventpoint.Next;
 		else	Events = eventpoint.Next;
 	}
@@ -29,10 +29,10 @@ class EventQueue
 	public EventPoint pop ()
 	{
 		EventPoint eventpoint = Events;
-		if(eventpoint != null)
+		if (eventpoint != null)
 		{
 			Events = Events.Next;
-			if(Events != null)
+			if (Events != null)
 			{
 				Events.Prev = null;
 			}
@@ -44,7 +44,7 @@ class EventQueue
 	{
 		for(EventPoint eventpoint = Events; eventpoint != null; eventpoint = eventpoint.Next)
 		{
-			if(flag || !(eventpoint instanceof CirclePoint))
+			if (flag || !(eventpoint instanceof CirclePoint))
 			{
 				eventpoint.paint(g);
 			}

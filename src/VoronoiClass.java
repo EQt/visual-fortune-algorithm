@@ -11,7 +11,7 @@ class VoronoiClass extends Vector<Paintable>
 {
 	public VoronoiClass (int width, int height, int points)
 	{
-		if(points > 0)
+		if (points > 0)
 		{
 			boolean flag = false;
 			for(int x = 30; x < width; x += width/8)
@@ -31,27 +31,27 @@ class VoronoiClass extends Vector<Paintable>
 
 	public void checkDegenerate ()
 	{
-		if(size() > 1)
+		if (size() > 1)
 		{
 			MyPoint min = (MyPoint)elementAt(0), next = min;
 			for(int i = 1; i < size(); i++)
 			{
 				Object element = elementAt(i);
-				if(element instanceof MyPoint)
+				if (element instanceof MyPoint)
 				{
-					if(((MyPoint)element).x <= min.x)
+					if (((MyPoint)element).x <= min.x)
 					{
 						next = min;
 						min = (MyPoint)element;
 					}
-					else if(((MyPoint)element).x <= min.x)
+					else if (((MyPoint)element).x <= min.x)
 					{
 						next = (MyPoint)element;
 					}
 				}
 			}
 
-			if(min.x == next.x && min != next)
+			if (min.x == next.x && min != next)
 			{
 				min.x--;
 				System.out.println("Moved point: " + next.x + " -> " + min.x);
@@ -63,7 +63,7 @@ class VoronoiClass extends Vector<Paintable>
 	{
 		for(int i = 0; i < size(); i++)
 		{
-			if(flag || !(elementAt(i) instanceof MyLine))
+			if (flag || !(elementAt(i) instanceof MyLine))
 				elementAt(i).paint(g);
 		}
 	}
@@ -72,7 +72,7 @@ class VoronoiClass extends Vector<Paintable>
 	{
 		for(int i = 0; i < size(); i++)
 		{
-			if(elementAt(i) instanceof MyLine)
+			if (elementAt(i) instanceof MyLine)
 				removeElementAt(i--);
 		}
 	}

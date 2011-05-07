@@ -14,17 +14,17 @@ class ArcNode extends ParabolaPoint
 
 	public void checkCircle (EventQueue eventqueue)
 	{
-		if(Prev != null && Next != null)
+		if (Prev != null && Next != null)
 		{
 			circlePoint = calculateCenter(Next, this, Prev);
-			if(circlePoint != null)
+			if (circlePoint != null)
 				eventqueue.insert(circlePoint);
 		}
 	}
 
 	public void removeCircle (EventQueue eventqueue)
 	{
-		if(circlePoint != null)
+		if (circlePoint != null)
 		{
 			eventqueue.remove(circlePoint);
 			circlePoint = null;
@@ -33,7 +33,7 @@ class ArcNode extends ParabolaPoint
 
 	public void completeTrace (MyCanvas mycanvas, MyPoint mypoint)
 	{
-		if(startOfTrace != null)
+		if (startOfTrace != null)
 		{
 			mycanvas.Voronoi.addElement(new MyLine(startOfTrace, mypoint));
 			mycanvas.Delaunay.addElement(new MyLine(this, Next));
@@ -43,10 +43,10 @@ class ArcNode extends ParabolaPoint
 
 	public void checkBounds (MyCanvas mycanvas, double d)
 	{
-		if(Next != null)
+		if (Next != null)
 		{
 			Next.init(d);
-			if(d > Next.x && d > x && startOfTrace != null)
+			if (d > Next.x && d > x && startOfTrace != null)
 			{
 				try
 				{
@@ -54,7 +54,7 @@ class ArcNode extends ParabolaPoint
 					double d1 = ad[0];
 					double d2 = d - F(d1);
 					Rectangle rectangle = mycanvas.getBounds();
-					if(d2 < startOfTrace.x && d2 < 0.0D || d1 < 0.0D || d2 >= (double)rectangle.width || d1 >= (double)rectangle.height)
+					if (d2 < startOfTrace.x && d2 < 0.0D || d1 < 0.0D || d2 >= (double)rectangle.width || d1 >= (double)rectangle.height)
 						completeTrace(mycanvas, new MyPoint(d2, d1));
 				}
 				catch(Throwable _ex)
@@ -70,13 +70,13 @@ class ArcNode extends ParabolaPoint
 		throws Throwable
 	{
 		boolean split = true;
-		if(Next != null)
+		if (Next != null)
 		{
 			Next.init(sline);
-			if(sline > Next.x && sline > x)
+			if (sline > Next.x && sline > x)
 			{
 				double xs[] = solveQuadratic(a - Next.a, b - Next.b, c - Next.c);
-				if(xs[0] <= parabolapoint.realX() && xs[0] != xs[1])
+				if (xs[0] <= parabolapoint.realX() && xs[0] != xs[1])
 					split = false;
 			}
 			else
@@ -85,7 +85,7 @@ class ArcNode extends ParabolaPoint
 			}
 		}
 
-		if(split)
+		if (split)
 		{
 			removeCircle(eventqueue);
 
@@ -95,7 +95,7 @@ class ArcNode extends ParabolaPoint
 			arcnode.Next.Next = Next;
 			arcnode.Next.Prev = arcnode;
 
-			if(Next != null)
+			if (Next != null)
 				Next.Prev = arcnode.Next;
 
 			Next = arcnode;
@@ -117,22 +117,22 @@ class ArcNode extends ParabolaPoint
 	{
 		double d2 = g.getClipBounds().height;
 		ArcNode arcnode = Next;
-		if(arcnode != null)
+		if (arcnode != null)
 		{
 			arcnode.init(d);
 		}
-		if(d == x)
+		if (d == x)
 		{
 			double d3 = arcnode != null ? d - arcnode.F(y) : 0.0D;
-			if(drawBeach)
+			if (drawBeach)
 				g.drawLine((int)d3, (int)y, (int)d, (int)y);
 			d2 = y;
 		}
 		else
 		{
-			if(arcnode != null)
+			if (arcnode != null)
 			{
-				if(d == arcnode.x)
+				if (d == arcnode.x)
 				{
 					d2 = arcnode.y;
 				}
@@ -151,14 +151,14 @@ class ArcNode extends ParabolaPoint
 				}
 			}
 
-			if(drawBeach)
+			if (drawBeach)
 			{
 				int i = 1;
 				double d4 = 0.0D;
 				for(double d5 = d1; d5 < Math.min(Math.max(0.0D, d2), g.getClipBounds().height); d5 += i)
 				{
 					double d6 = d - F(d5);
-					if(d5 > d1 && (d4 >= 0.0D || d6 >= 0.0D))
+					if (d5 > d1 && (d4 >= 0.0D || d6 >= 0.0D))
 					{
 						g.drawLine((int)d4, (int)(d5 - (double)i), (int)d6, (int)d5);
 					}
@@ -166,7 +166,7 @@ class ArcNode extends ParabolaPoint
 				}
 			}
 
-			if(flag && startOfTrace != null)
+			if (flag && startOfTrace != null)
 			{
 				double d7 = d - F(d2);
 				double d8 = d2;
@@ -176,7 +176,7 @@ class ArcNode extends ParabolaPoint
 			}
 		}
 
-		if(Next != null)
+		if (Next != null)
 			Next.paint(g, d, Math.max(0.0D, d2), flag, drawBeach);
 	}
 

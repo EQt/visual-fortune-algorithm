@@ -9,7 +9,7 @@ class ArcTree
 {
 	public void insert (MyPoint mypoint, double d, EventQueue eventqueue)
 	{
-		if(arcs == null)
+		if (arcs == null)
 		{
 			arcs = new ArcNode(mypoint);
 			return;
@@ -30,7 +30,7 @@ class ArcTree
 
 	public void checkBounds (MyCanvas mycanvas, double d)
 	{
-		if(arcs != null)
+		if (arcs != null)
 		{
 			arcs.init(d);
 			arcs.checkBounds(mycanvas, d);
@@ -39,7 +39,7 @@ class ArcTree
 
 	public void paint (Graphics g, double d, boolean flag, boolean drawBeach)
 	{
-		if(arcs != null)
+		if (arcs != null)
 		{
 			arcs.init(d);
 			arcs.paint(g, d, 0.0D, flag, drawBeach);

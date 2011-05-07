@@ -18,9 +18,9 @@ class EventPoint extends MyPoint
 
 	public void insert(EventPoint eventpoint)
 	{
-		if(eventpoint.x > x || eventpoint.x == x && eventpoint.y > y)
+		if (eventpoint.x > x || eventpoint.x == x && eventpoint.y > y)
 		{
-			if(Next != null)
+			if (Next != null)
 			{
 				Next.insert(eventpoint);
 				return;
@@ -31,11 +31,11 @@ class EventPoint extends MyPoint
 				return;
 			}
 		}
-		if(eventpoint.x != x || eventpoint.y != y || (eventpoint instanceof CirclePoint))
+		if (eventpoint.x != x || eventpoint.y != y || (eventpoint instanceof CirclePoint))
 		{
 			eventpoint.Prev = Prev;
 			eventpoint.Next = this;
-			if(Prev != null)
+			if (Prev != null)
 			{
 				Prev.Next = eventpoint;
 			}

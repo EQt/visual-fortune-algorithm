@@ -57,7 +57,7 @@ class MyCanvas extends Canvas
 	public synchronized void mousePressed(MouseEvent mouseevent)
 	{
 		MyPoint mypoint = new MyPoint(mouseevent.getPoint());
-		if(mypoint.x > (double)XPos)
+		if (mypoint.x > (double)XPos)
 		{
 			Voronoi.addElement(mypoint);
 			Voronoi.checkDegenerate();
@@ -74,13 +74,13 @@ class MyCanvas extends Canvas
 		Voronoi.paint(g, drawVoronoiLines);
 		g.setColor(Color.red);
 		g.drawLine(XPos, 0, XPos, getBounds().height);
-		if(Events != null && Arcs != null)
+		if (Events != null && Arcs != null)
 		{
 			g.setColor(Color.black);
 			Events.paint(g, drawCircles);
 			Arcs.paint(g, XPos, drawVoronoiLines, drawBeach);
 		}
-		if(drawDelaunay)
+		if (drawDelaunay)
 		{
 			g.setColor(Color.gray);
 			Delaunay.paint(g);
@@ -97,7 +97,7 @@ class MyCanvas extends Canvas
 
 	public synchronized boolean singlestep ()
 	{
-		if(Events.Events == null || (double)XPos < Events.Events.x)
+		if (Events.Events == null || (double)XPos < Events.Events.x)
 			XPos++;
 
 		while(Events.Events != null && (double)XPos >= Events.Events.x) 
@@ -108,7 +108,7 @@ class MyCanvas extends Canvas
 			Arcs.checkBounds(this, XPos);
 		}
 
-		if(XPos > getBounds().width && Events.Events == null)
+		if (XPos > getBounds().width && Events.Events == null)
 			Arcs.checkBounds(this, XPos);
 
 		repaint();
@@ -118,12 +118,12 @@ class MyCanvas extends Canvas
 	public synchronized void step()
 	{
 		EventPoint eventpoint = Events.pop();
-		if(eventpoint != null)
+		if (eventpoint != null)
 		{
 			XPos = Math.max(XPos, (int)eventpoint.x);
 			eventpoint.action(this);
 		} else
-		if(XPos < getBounds().width)
+		if (XPos < getBounds().width)
 		{
 			XPos = getBounds().width;
 		} else

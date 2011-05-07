@@ -9,17 +9,17 @@ class ArcTree
 {
 	public void insert (MyPoint mypoint, double d, EventQueue eventqueue)
 	{
-		if(Arcs == null)
+		if(arcs == null)
 		{
-			Arcs = new ArcNode(mypoint);
+			arcs = new ArcNode(mypoint);
 			return;
 		}
 		try
 		{
 			ParabolaPoint parabolapoint = new ParabolaPoint(mypoint);
 			parabolapoint.init(d);
-			Arcs.init(d);
-			Arcs.insert(parabolapoint, d, eventqueue);
+			arcs.init(d);
+			arcs.insert(parabolapoint, d, eventqueue);
 			return;
 		}
 		catch(Throwable _ex)
@@ -30,21 +30,21 @@ class ArcTree
 
 	public void checkBounds (MyCanvas mycanvas, double d)
 	{
-		if(Arcs != null)
+		if(arcs != null)
 		{
-			Arcs.init(d);
-			Arcs.checkBounds(mycanvas, d);
+			arcs.init(d);
+			arcs.checkBounds(mycanvas, d);
 		}
 	}
 
 	public void paint (Graphics g, double d, boolean flag, boolean drawBeach)
 	{
-		if(Arcs != null)
+		if(arcs != null)
 		{
-			Arcs.init(d);
-			Arcs.paint(g, d, 0.0D, flag, drawBeach);
+			arcs.init(d);
+			arcs.paint(g, d, 0.0D, flag, drawBeach);
 		}
 	}
 
-	ArcNode Arcs;
+	ArcNode arcs;
 }

@@ -50,9 +50,9 @@ class MyPoint implements Paintable
 	 */
 	public double distance(MyPoint mypoint)
 	{
-		double d = mypoint.x - x;
-		double d1 = mypoint.y - y;
-		return Math.sqrt(d * d + d1 * d1);
+		double dx = mypoint.x - x;
+		double dy = mypoint.y - y;
+		return Math.sqrt(dx * dx + dy * dy);
 	}
 
 }

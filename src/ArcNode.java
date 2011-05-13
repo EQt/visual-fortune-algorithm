@@ -12,6 +12,11 @@ class ArcNode extends ParabolaPoint
 		super(mypoint);
 	}
 
+	/**
+	 * Prüft, ob es von diesem Bogenabschnitt zwei Nachbarn gibt, sodass diese ein Circle Event
+	 * formen könnten und fügt dieses ggf. in die EventQueue ein.
+	 * @param eventqueue
+	 */
 	public void checkCircle (EventQueue eventqueue)
 	{
 		if (Prev != null && Next != null)
